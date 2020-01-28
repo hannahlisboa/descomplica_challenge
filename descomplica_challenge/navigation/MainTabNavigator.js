@@ -5,73 +5,50 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
 import PalavrasCountScreen from '../screens/PalavrasCountScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import PersonagensScreen from '../screens/PersonagensScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
-const PalavrasCountStack = createStackNavigator(
+const HomeStack = createStackNavigator(
   {
     Home: PalavrasCountScreen,
   },
-  config
 );
 
-PalavrasCountStack.navigationOptions = {
+HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name='md-home'
     />
   ),
 };
 
-PalavrasCountStack.path = '';
+HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const PersonagensStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Personagens: PersonagensScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+PersonagensStack.navigationOptions = {
+  tabBarLabel: 'Personagens',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name='md-person' />
   ),
 };
 
-LinksStack.path = '';
-
-const SettingsStack = createStackNavigator(
-  {
-    Settings: SettingsScreen,
-  },
-  config
-);
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  ),
-};
-
-SettingsStack.path = '';
+PersonagensStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  PalavrasCountStack,
-  LinksStack,
-  SettingsStack,
+  HomeStack,
+  PersonagensStack,
 });
 
 tabNavigator.path = '';
