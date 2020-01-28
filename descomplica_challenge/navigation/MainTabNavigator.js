@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import PalavrasCountScreen from '../screens/PalavrasCountScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -13,14 +13,14 @@ const config = Platform.select({
   default: {},
 });
 
-const HomeStack = createStackNavigator(
+const PalavrasCountStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: PalavrasCountScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
+PalavrasCountStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -34,7 +34,7 @@ HomeStack.navigationOptions = {
   ),
 };
 
-HomeStack.path = '';
+PalavrasCountStack.path = '';
 
 const LinksStack = createStackNavigator(
   {
@@ -69,7 +69,7 @@ SettingsStack.navigationOptions = {
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
+  PalavrasCountStack,
   LinksStack,
   SettingsStack,
 });
