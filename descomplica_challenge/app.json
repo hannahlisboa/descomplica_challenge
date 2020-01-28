@@ -25,6 +25,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Teste Específico - Descomplica",
+    "githubUrl": "https://github.com/hannahlisboa/descomplica_challenge"
   }
 }
